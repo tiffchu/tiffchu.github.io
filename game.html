@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        .game-container {
+            text-align: center;
+        }
+
+        canvas {
+            background-color: #111;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .game-info span {
+            font-weight: 600;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.4rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            background-color: #2a6df4;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .instructions {
+            color: #555;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <h1>Tiff da gamer</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><a href="cv.html">CV</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="card game-container">
+        <h2>Snake Game</h2>
+
+        <p>
+            Classic Snake built with vanilla JavaScript and HTML Canvas.
+        </p>
+
+        <div class="game-info">
+            <div>Score: <span id="score">0</span></div>
+            <div>High Score: <span id="highScore">0</span></div>
+        </div>
+
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+        <button id="startBtn">Start Game</button>
+
+        <p class="instructions">
+            Controls: ↑ ↓ ← →
+        </p>
+    </section>
+</main>
+
+<footer>
+    © 2025 With love, Tiffany :D
+</footer>
+
+<script>
+/* --------- Canvas Setup --------- */
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+const box = 20;
+
+/* --------- DOM Elements --------- */
+const scoreEl = document.getElementById("score");
+const highScoreEl = document.getElementById("highScore");
+const startBtn = document.getElementById("startBtn");
+
+/* --------- Game State --------- */
+let snake, food, direction, score, gameInterval;
+let isRunning = false;
+
+/* --------- High Score Storage --------- */
+let highScore = localStorage.getItem("snakeHighScore") || 0;
+highScoreEl.textContent = highScore;
+
+/* --------- Controls --------- */
+document.addEventListener("keydown", changeDirection);
+
+function changeDirection(event) {
+    if (!isRunning) return;
+
+    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+    else if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+    else if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+    else if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+}
+
+/* --------- Game Initialization --------- */
+function startGame() {
+    clearInterval(gameInterval);
+
+    snake = [{ x: 9 * box, y: 10 * box }];
+    direction = "RIGHT";
+    score = 0;
+    scoreEl.textContent = score;
+
+    food = generateFood();
+
+    isRunning = true;
+    startBtn.textContent = "Restart Game";
+
+    gameInterval = setInterval(draw, 120);
+}
+
+/* --------- Food --------- */
+function generateFood() {
+    return {
+        x: Math.floor(Math.random() * 19 + 1) * box,
+        y: Math.floor(Math.random() * 19 + 1) * box
+    };
+}
+
+/* --------- Game Loop --------- */
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw snake
+    snake.forEach((segment, index) => {
+        ctx.fillStyle = index === 0 ? "#2a6df4" : "#9bbcff";
+        ctx.fillRect(segment.x, segment.y, box, box);
+    });
+
+    // Draw food
+    ctx.fillStyle = "#f44336";
+    ctx.fillRect(food.x, food.y, box, box);
+
+    let headX = snake[0].x;
+    let headY = snake[0].y;
+
+    if (direction === "LEFT") headX -= box;
+    if (direction === "UP") headY -= box;
+    if (direction === "RIGHT") headX += box;
+    if (direction === "DOWN") headY += box;
+
+    // Eat food
+    if (headX === food.x && headY === food.y) {
+        score++;
+        scoreEl.textContent = score;
+        food = generateFood();
+    } else {
+        snake.pop();
+    }
+
+    const newHead = { x: headX, y: headY };
+
+    // Game over
+    if (
+        headX < 0 ||
+        headY < 0 ||
+        headX >= canvas.width ||
+        headY >= canvas.height ||
+        collision(newHead, snake)
+    ) {
+        endGame();
+        return;
+    }
+
+    snake.unshift(newHead);
+}
+
+/* --------- Collision --------- */
+function collision(head, array) {
+    return array.some(segment => segment.x === head.x && segment.y === head.y);
+}
+
+/* --------- End Game --------- */
+function endGame() {
+    clearInterval(gameInterval);
+    isRunning = false;
+
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("snakeHighScore", highScore);
+        highScoreEl.textContent = highScore;
+    }
+
+    alert("Game Over!");
+}
+
+/* --------- Button --------- */
+startBtn.addEventListener("click", startGame);
+</script>
+
+</body>
+</html>
