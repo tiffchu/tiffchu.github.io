@@ -50,6 +50,10 @@
             color: #555;
             margin-top: 1rem;
         }
+        .game-controls {
+            margin-top: 1rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -87,7 +91,9 @@
 
         <canvas id="gameCanvas" width="400" height="400"></canvas>
 
-        <button id="startBtn">Start Game</button>
+        <div class="game-controls">
+            <button id="startBtn">Start Game</button>
+        </div>
 
         <p class="instructions">
             Controls: ↑ ↓ ← →
@@ -223,6 +229,7 @@ function endGame() {
 }
 
 /* --------- Button --------- */
+
 startBtn.addEventListener("click", startGame);
 </script>
 
