@@ -1,139 +1,247 @@
-/* --------- Global Styles --------- */
+/* =====================
+   Design Tokens
+   ===================== */
+:root {
+    --bg: #f6f7f9;
+    --bg-elevated: #ffffff;
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --border: #e5e7eb;
+
+    --accent: #1f3a8a;       /* Deep navy */
+    --accent-soft: #e0e7ff;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --bg-elevated: #111827;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border: #1f2937;
+
+    --accent: #93c5fd;
+    --accent-soft: #1e293b;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* =====================
+   Reset
+   ===================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* =====================
+   Base
+   ===================== */
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #222;
-    line-height: 1.7;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
 }
 
 a {
-    color: #2a6df4;
+    color: var(--accent);
     text-decoration: none;
+    font-weight: 500;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-/* --------- Layout --------- */
+/* =====================
+   Header & Nav
+   ===================== */
 header {
-    background: #ffffff;
-    padding: 1.2rem 2.5rem;
-    border-bottom: 1px solid #ddd;
+    background-color: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
 }
 
 nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 nav h1 {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 600;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
+    align-items: center;
 }
 
+#theme-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.35rem 0.6rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+#theme-toggle:hover {
+    background: var(--accent-soft);
+}
+
+/* =====================
+   Layout
+   ===================== */
 main {
-    max-width: 1000px;
-    margin: 3rem auto;
+    max-width: 1100px;
+    margin: 4rem auto;
     padding: 0 1.5rem;
 }
 
 section {
-    margin-bottom: 4rem;
+    margin-bottom: 4.5rem;
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
 }
 
 h3 {
-    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
-/* --------- Cards --------- */
+/* =====================
+   Cards
+   ===================== */
 .card {
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-    margin-bottom: 2.5rem;
+    background-color: var(--bg-elevated);
+    padding: 2.2rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* --------- Images --------- */
-.image-placeholder {
-    width: 100%;
-    height: 220px;
-    background-color: #eaeaea;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #777;
-    margin-bottom: 1rem;
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.12);
 }
 
-/* --------- Buttons --------- */
+.card p {
+    color: var(--text-secondary);
+}
+
+/* =====================
+   Buttons / Links
+   ===================== */
+.button-group {
+    margin-top: 1.2rem;
+}
+
 .button-group a {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 0.8rem;
     margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    border: 1px solid #2a6df4;
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .button-group a.primary {
-    background: #2a6df4;
+    background-color: var(--accent);
     color: white;
 }
 
-/* --------- PDF Embed --------- */
-.pdf-embed {
+.button-group a:hover {
+    opacity: 0.9;
+}
+
+/* =====================
+   Images
+   ===================== */
+.image-placeholder {
     width: 100%;
-    height: 800px;
-    border: none;
-    border-radius: 10px;
+    height: 240px;
+    background: linear-gradient(
+        135deg,
+        var(--border),
+        var(--accent-soft)
+    );
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
 }
 
-/* --------- Footer --------- */
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #666;
-}
-
-/* --------- Hobby Images --------- */
+/* =====================
+   Hobby Images
+   ===================== */
 .hobby-images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 .hobby-images img {
     width: 100%;
-    /* height: 200px; */
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
-    background-color: #eaeaea;
+    border-radius: 12px;
 }
 
+/* =====================
+   PDF
+   ===================== */
+.pdf-embed {
+    width: 100%;
+    height: 800px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+/* =====================
+   Footer
+   ===================== */
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+}
+
+/* =====================
+   Responsive
+   ===================== */
 @media (max-width: 768px) {
+    nav ul {
+        gap: 1.2rem;
+    }
+
     .hobby-images {
         grid-template-columns: 1fr;
     }
