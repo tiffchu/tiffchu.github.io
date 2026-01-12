@@ -1,1 +1,1 @@
-finally made one. Here it is: [click here](https://tiffchu.github.io/personal_website/)
+finally made one. Here it is: [click here](https://tiffchu.github.io/)
