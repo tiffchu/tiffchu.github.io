@@ -207,7 +207,8 @@ h3 {
     margin-bottom: 1.5rem;
 }
 
-.hobby-images img {
+.hobby-images img ,
+.hobby-images video {
     width: 100%;
     height: 500px;
     object-fit: cover;
