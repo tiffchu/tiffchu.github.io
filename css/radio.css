@@ -112,3 +112,30 @@
 .volume input {
     flex: 1;
 }
+
+.fm-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radio-dashboard {
+    width: 380px;
+    padding: 1.5rem;
+    transform: translateY(-20px);
+}
+.radio-screen {
+    font-size: 1.05rem;
+}
+
+.frequency {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.radio-controls button {
+    font-size: 1.4rem;
+    padding: 0.4rem 0.7rem;
+}
