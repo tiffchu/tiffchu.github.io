@@ -57,4 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
     volumeSlider.addEventListener("input", e => {
         audio.volume = e.target.value;
     });
-});
+}); 
