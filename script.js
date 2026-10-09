@@ -362,13 +362,13 @@ function initDotGrid(wrapper, canvas) {
 
 document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
     const items = Array.from(wheel.querySelectorAll(".option-wheel__item"));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const selectedAtLoad = Math.max(
         0,
         items.findIndex((item) => item.classList.contains("option-wheel__item--selected"))
     );
     const cfg = {
         count: items.length,
-        fontSize: parseFloat(getComputedStyle(wheel).getPropertyValue("--ow-font-size")) || 3,
         spacing: 1.4,
         curve: 1,
         tilt: 6,
@@ -378,8 +378,8 @@ document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
         smoothing: 200,
         loop: wheel.closest(".home-page") !== null
     };
-    const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-    const rowH = Math.max(cfg.fontSize * cfg.spacing * remPx, 1);
+    // Read the resolved font size so viewport-based sizes also work on short screens.
+    let rowH = Math.max(parseFloat(getComputedStyle(items[0]).fontSize) * cfg.spacing, 1);
     const state = {
         pos: selectedAtLoad,
         target: selectedAtLoad,
@@ -388,14 +388,16 @@ document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
         last: 0,
         wheelTimer: null,
         drag: null,
-        dragMoved: false
+        dragMoved: false,
+        nudgeTimer: null,
+        nudging: false
     };
 
     function render(now) {
         const dt = Math.min((now - state.last) / 1000, 0.05);
         state.last = now;
         const tau = Math.max(cfg.smoothing, 1) / 1000;
-        const k = 1 - Math.exp(-dt / tau);
+        const k = reducedMotion.matches ? 1 : 1 - Math.exp(-dt / tau);
         let next = state.pos + (state.target - state.pos) * k;
         const settled = Math.abs(state.target - next) < 0.001;
 
@@ -437,6 +439,10 @@ document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
         });
 
         state.raf = settled ? null : requestAnimationFrame(render);
+
+        if (settled && state.nudging && state.target === selectedAtLoad) {
+            finishArrivalNudge();
+        }
     }
 
     function startLoop() {
@@ -480,6 +486,49 @@ document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
         startLoop();
     }
 
+    const nudgeEvents = ["pointerdown", "wheel", "keydown", "focusin"];
+
+    function finishArrivalNudge() {
+        clearTimeout(state.nudgeTimer);
+        state.nudging = false;
+        nudgeEvents.forEach((type) => document.removeEventListener(type, stopArrivalNudge, true));
+    }
+
+    function stopArrivalNudge() {
+        const wasNudging = state.nudging;
+        finishArrivalNudge();
+
+        if (wasNudging) {
+            // Remove the demonstration offset before the user's input takes over.
+            if (state.raf !== null) {
+                cancelAnimationFrame(state.raf);
+            }
+            state.pos = selectedAtLoad;
+            state.target = selectedAtLoad;
+            render(performance.now());
+        }
+    }
+
+    reducedMotion.addEventListener("change", () => {
+        if (reducedMotion.matches) {
+            stopArrivalNudge();
+            startLoop();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        rowH = Math.max(parseFloat(getComputedStyle(items[0]).fontSize) * cfg.spacing, 1);
+        startLoop();
+    });
+
+    wheel.querySelectorAll("[data-wheel-step]").forEach((button) => {
+        button.addEventListener("click", () => {
+            stopArrivalNudge();
+            clearTimeout(state.wheelTimer);
+            applyTarget(Math.round(state.target) + Number(button.dataset.wheelStep), true);
+        });
+    });
+
     wheel.addEventListener(
         "wheel",
         handleWheel,
@@ -513,7 +562,14 @@ document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
         { passive: false }
     );
 
+    // Keep native link dragging from cancelling the wheel's pointer gesture.
+    wheel.addEventListener("dragstart", (event) => event.preventDefault());
+
     wheel.addEventListener("pointerdown", (event) => {
+        if (event.target.closest("[data-wheel-step]")) {
+            return;
+        }
+
         state.drag = { y: event.clientY, start: state.target, id: event.pointerId };
         state.dragMoved = false;
         wheel.classList.add("option-wheel--dragging");
@@ -593,4 +649,13 @@ document.querySelectorAll("[data-option-wheel]").forEach((wheel) => {
 
     setSelected(selectedAtLoad);
     applyTarget(selectedAtLoad, false);
+
+    if (wheel.hasAttribute("data-arrival-nudge") && !reducedMotion.matches && cfg.count > 1) {
+        nudgeEvents.forEach((type) => document.addEventListener(type, stopArrivalNudge, { capture: true, passive: true }));
+        state.nudgeTimer = setTimeout(() => {
+            state.nudging = true;
+            applyTarget(selectedAtLoad + 0.22, false);
+            state.nudgeTimer = setTimeout(() => applyTarget(selectedAtLoad, false), 650);
+        }, 650);
+    }
 });
