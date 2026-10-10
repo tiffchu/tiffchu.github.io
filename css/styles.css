@@ -958,8 +958,14 @@ nav ul {
 .home-theme-toggle {
     position: fixed;
     top: 1.25rem;
-    right: clamp(4rem, 10vw, 8rem);
+    right: clamp(0rem, calc(10vw - 6rem), 2rem);
     z-index: 90;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .home-theme-toggle {
+        right: clamp(4rem, 10vw, 8rem);
+    }
 }
 
 .mode-label {
