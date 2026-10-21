@@ -38,6 +38,7 @@
             <p class="section-label">Lifemaxxing</p>
             <h1 id="hobbies-title">Hobbies</h1>
             <p>Things I do when I'm not staring at a screen</p>
+            <p class="hobbies-photo-hint">Click or tap a photo to view it in full.</p>
         </div>
     </section>
 
@@ -141,6 +142,25 @@
     </div>
 </footer>
 
+<dialog class="photo-viewer" aria-label="Hobbies photo viewer" aria-describedby="photo-viewer-caption">
+    <div class="photo-viewer__panel">
+        <div class="photo-viewer__toolbar">
+            <p class="photo-viewer__position" aria-live="polite" aria-atomic="true"></p>
+            <button class="photo-viewer__close" type="button" aria-label="Close photo viewer" autofocus>Close <span aria-hidden="true">&times;</span></button>
+        </div>
+        <figure class="photo-viewer__figure">
+            <img class="photo-viewer__image" alt="">
+            <figcaption id="photo-viewer-caption"></figcaption>
+        </figure>
+        <div class="photo-viewer__navigation">
+            <button type="button" data-photo-step="-1" aria-label="Previous photo"><span aria-hidden="true">&larr;</span> Previous</button>
+            <a class="photo-viewer__original" target="_blank" rel="noopener">Open original <span aria-hidden="true">&nearr;</span></a>
+            <button type="button" data-photo-step="1" aria-label="Next photo">Next <span aria-hidden="true">&rarr;</span></button>
+        </div>
+    </div>
+</dialog>
+
 <script src="script.js"></script>
+<script src="hobbies.js"></script>
 </body>
 </html>
