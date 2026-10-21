@@ -32,12 +32,6 @@
         photo.before(link);
         link.appendChild(photo);
 
-        const hint = document.createElement("span");
-        hint.className = "hobby-photo__hint";
-        hint.textContent = "Enlarge ↗";
-        hint.setAttribute("aria-hidden", "true");
-        link.appendChild(hint);
-
         link.addEventListener("click", (event) => {
             // Preserve browser shortcuts for opening the original in another tab.
             if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
