@@ -38,7 +38,7 @@
             <p class="section-label">Lifemaxxing</p>
             <h1 id="hobbies-title">Hobbies</h1>
             <p>Things I do when I'm not staring at a screen</p>
-            <p class="hobbies-photo-hint">Click or tap a photo to view it in full.</p>
+            <p class="hobbies-photo-hint">Click or tap a photo or video to view it in full.</p>
         </div>
     </section>
 
@@ -66,7 +66,7 @@
 
     <section class="hobby-feature hobby-feature--reverse" aria-labelledby="water-title">
         <div class="hobby-feature__media hobby-feature__media--wide">
-            <img src="assets/images/dragonboat.jpg" alt="Nationals in Welland, Ontario. Colorized. Circa 2023">
+            <img src="assets/images/dragonboat.jpg" alt="Nationals in Welland, Ontario. 2023">
             <img src="assets/images/oc.jpg" alt="OC at Dragonzone, False Creek">
             <img src="assets/images/star.jpg" alt="idk">
         </div>
@@ -89,8 +89,8 @@
 
     <section class="hobby-feature" aria-labelledby="movement-title">
         <div class="hobby-feature__media hobby-feature__media--wide hobby-feature__media--motion">
-            <img src="assets/images/climb.jpg" alt="not actually climbing, hiking rather">
-            <video autoplay loop muted playsinline aria-label="Pull-up training video">
+            <img src="assets/images/climb.jpg" alt="pretending to climb idk why">
+            <video autoplay loop muted playsinline aria-label="ok I pullup">
                 <source src="assets/images/pullup.mp4" type="video/mp4">
             </video>
             <img src="assets/images/hike.jpg" alt="backpacking">
@@ -142,20 +142,21 @@
     </div>
 </footer>
 
-<dialog class="photo-viewer" aria-label="Hobbies photo viewer" aria-describedby="photo-viewer-caption">
+<dialog class="photo-viewer" aria-label="Hobbies media viewer" aria-describedby="photo-viewer-caption">
     <div class="photo-viewer__panel">
         <div class="photo-viewer__toolbar">
             <p class="photo-viewer__position" aria-live="polite" aria-atomic="true"></p>
-            <button class="photo-viewer__close" type="button" aria-label="Close photo viewer" autofocus>Close <span aria-hidden="true">&times;</span></button>
+            <button class="photo-viewer__close" type="button" aria-label="Close media viewer" autofocus>Close <span aria-hidden="true">&times;</span></button>
         </div>
         <figure class="photo-viewer__figure">
             <img class="photo-viewer__image" alt="">
+            <video class="photo-viewer__image photo-viewer__video" controls loop muted playsinline preload="none" hidden aria-label="Enlarged activity video"></video>
             <figcaption id="photo-viewer-caption"></figcaption>
         </figure>
         <div class="photo-viewer__navigation">
-            <button type="button" data-photo-step="-1" aria-label="Previous photo"><span aria-hidden="true">&larr;</span> Previous</button>
+            <button type="button" data-photo-step="-1" aria-label="Previous photo or video"><span aria-hidden="true">&larr;</span> Previous</button>
             <a class="photo-viewer__original" target="_blank" rel="noopener">Open original <span aria-hidden="true">&nearr;</span></a>
-            <button type="button" data-photo-step="1" aria-label="Next photo">Next <span aria-hidden="true">&rarr;</span></button>
+            <button type="button" data-photo-step="1" aria-label="Next photo or video">Next <span aria-hidden="true">&rarr;</span></button>
         </div>
     </div>
 </dialog>

@@ -237,8 +237,13 @@
     cursor: zoom-in;
 }
 
-.hobby-photo:hover img {
+.hobby-photo:hover img,
+.hobby-photo:hover video {
     filter: brightness(1.08);
+}
+
+.hobby-photo video {
+    pointer-events: none;
 }
 
 .hobby-photo:focus-visible,
@@ -311,6 +316,10 @@ html.photo-viewer-open {
     height: min(70vh, 52rem);
     height: min(70dvh, 52rem);
     object-fit: contain;
+}
+
+.photo-viewer__image[hidden] {
+    display: none;
 }
 
 .photo-viewer figcaption {
