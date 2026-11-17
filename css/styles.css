@@ -157,25 +157,25 @@ h3 {
     overflow: hidden;
 }
 
-.projects-intro {
+.page-intro {
     max-width: 58rem;
     margin-bottom: 2.4rem;
 }
 
-.projects-intro h1 {
+.page-intro h1 {
     margin: 0.45rem 0 0.9rem;
     font-size: clamp(3rem, 7vw, 6.2rem);
     line-height: 0.9;
 }
 
-.projects-intro > p:last-child {
+.page-intro__description {
     color: var(--text-secondary);
     font-size: 1.05rem;
     line-height: 1.6;
 }
 
 @media (min-width: 900px) {
-    .projects-intro > p:last-child {
+    .projects-page .page-intro__description {
         white-space: nowrap;
     }
 }
