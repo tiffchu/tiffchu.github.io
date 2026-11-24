@@ -1,0 +1,133 @@
+- generic [active] [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - navigation [ref=f4e3]:
+      - link "Tiffany Chu home" [ref=f4e4] [cursor=pointer]:
+        - /url: index.html
+        - text: /
+        - generic [ref=f4e5]: Tiffany Chu
+      - list [ref=f4e6]:
+        - listitem [ref=f4e7]:
+          - link "Home" [ref=f4e8] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f4e9]:
+          - link "Projects" [ref=f4e10] [cursor=pointer]:
+            - /url: projects.html
+        - listitem [ref=f4e11]:
+          - link "Hobbies" [ref=f4e12] [cursor=pointer]:
+            - /url: hobbies.html
+        - listitem [ref=f4e13]:
+          - link "CV" [ref=f4e14] [cursor=pointer]:
+            - /url: cv.html
+        - listitem [ref=f4e15]:
+          - link "Game" [ref=f4e16] [cursor=pointer]:
+            - /url: game.html
+      - button "Toggle dark mode" [ref=f4e18] [cursor=pointer]: ☾
+  - main [ref=f4e19]:
+    - region "Projects" [ref=f4e20]:
+      - paragraph [ref=f4e21]: Selected work
+      - heading "Projects" [level=1] [ref=f4e22]
+      - paragraph [ref=f4e23]: Data products, research, and machine learning work designed to make complex information useful. Click the thumbnail to view.
+    - generic [ref=f4e24]:
+      - article [ref=f4e25]:
+        - link "View IBD analysis case study" [ref=f4e26] [cursor=pointer]:
+          - /url: projects/ibd.html
+          - img "Preview of the IBD analysis dashboard" [ref=f4e27]
+          - generic [ref=f4e28]: View case study
+        - generic [ref=f4e29]:
+          - paragraph [ref=f4e30]: Masters Capstone
+          - heading "Reproducible Framework for IBD Analysis" [level=2] [ref=f4e31]
+          - paragraph [ref=f4e32]: BC Children's Hospital Research Institute
+          - list "IBD project technologies" [ref=f4e33]:
+            - listitem [ref=f4e34]: R & Shiny
+            - listitem [ref=f4e35]: Quarto
+            - listitem [ref=f4e36]: Data pipelines
+            - listitem [ref=f4e37]: Make
+            - listitem [ref=f4e38]: statistical analysis
+            - listitem [ref=f4e39]: Patient data
+        - paragraph [ref=f4e40]: A reproducible pipeline and dashboard that bring clinical, dietary, biomarker, and mycobiome data together for IBD research.
+        - generic [ref=f4e41]:
+          - link "View project" [ref=f4e42] [cursor=pointer]:
+            - /url: projects/ibd.html
+          - link "Stats site" [ref=f4e43] [cursor=pointer]:
+            - /url: https://tiffchu.github.io/BC_Childrens_Research_Institute_IBD_demo/
+          - link "GitHub" [ref=f4e44] [cursor=pointer]:
+            - /url: https://github.com/tiffchu/BC_Childrens_Research_Institute_IBD_demo/tree/main
+      - article [ref=f4e45]:
+        - link "View NLP tool case study" [ref=f4e46] [cursor=pointer]:
+          - /url: projects/nlp.html
+          - img "Preview of the NLP analysis application" [ref=f4e47]
+          - generic [ref=f4e48]: View case study
+        - generic [ref=f4e49]:
+          - paragraph [ref=f4e50]: Data Science Internship
+          - heading "NLP Tool & Analysis App" [level=2] [ref=f4e51]
+          - paragraph [ref=f4e52]: UBC Data Science Institute
+          - list "NLP project technologies" [ref=f4e53]:
+            - listitem [ref=f4e54]: Python
+            - listitem [ref=f4e55]: Streamlit
+            - listitem [ref=f4e56]: BERTopic sentiment analysis
+            - listitem [ref=f4e57]: Transformers
+            - listitem [ref=f4e58]: HuggingFace BART
+        - paragraph [ref=f4e59]: An interactive Streamlit app that makes text cleaning, linguistic analysis, sentiment, and topic modelling accessible to non-technical users.
+        - generic [ref=f4e60]:
+          - link "View project" [ref=f4e61] [cursor=pointer]:
+            - /url: projects/nlp.html
+          - link "Live demo" [ref=f4e62] [cursor=pointer]:
+            - /url: https://nlp-tool.streamlit.app/
+          - link "GitHub" [ref=f4e63] [cursor=pointer]:
+            - /url: https://github.com/tiffchu/NLP_app
+          - link "Final report" [ref=f4e64] [cursor=pointer]:
+            - /url: assets/pdfs/nlp.pdf
+      - article [ref=f4e65]:
+        - link "View ICU topic modelling case study" [ref=f4e66] [cursor=pointer]:
+          - /url: projects/icu-topic-modelling.html
+          - img "Slide explaining LDA for the ICU topic modelling project" [ref=f4e67]
+          - generic [ref=f4e68]: View case study
+        - generic [ref=f4e69]:
+          - paragraph [ref=f4e70]: Research Lab project
+          - heading "Topic Modelling of ICU Transcripts" [level=2] [ref=f4e71]
+          - paragraph [ref=f4e72]: UBC School of Nursing
+          - list "ICU transcript project technologies" [ref=f4e73]:
+            - listitem [ref=f4e74]: Python
+            - listitem [ref=f4e75]: Latent Dirichlet Allocation
+            - listitem [ref=f4e76]: Gensim
+            - listitem [ref=f4e77]: pyLDAvis
+            - listitem [ref=f4e78]: Text mining
+            - listitem [ref=f4e79]: sklearn
+            - listitem [ref=f4e80]: Unsupervised ML
+        - paragraph [ref=f4e81]: Latent Dirichlet Allocation applied to ICU-survivor transcripts to surface challenges that may contribute to unplanned readmission.
+        - generic [ref=f4e82]:
+          - link "View project" [ref=f4e83] [cursor=pointer]:
+            - /url: projects/icu-topic-modelling.html
+          - link "GitHub" [ref=f4e84] [cursor=pointer]:
+            - /url: https://github.com/tiffchu/COGS402-research_proj
+          - link "Final paper" [ref=f4e85] [cursor=pointer]:
+            - /url: https://github.com/tiffchu/COGS402-research_proj/blob/main/TC_FinalPaper_402.pdf
+          - link "Study site" [ref=f4e86] [cursor=pointer]:
+            - /url: https://icusurvivorphotovoice.nursing.ubc.ca/
+      - article [ref=f4e87]:
+        - link "View Senate investments case study" [ref=f4e88] [cursor=pointer]:
+          - /url: projects/senate-investments.html
+          - img "Cover slide for the Senate investments anomaly detection project" [ref=f4e89]
+          - generic [ref=f4e90]: View case study
+        - generic [ref=f4e91]:
+          - paragraph [ref=f4e92]: Personal project
+          - heading "Anomaly Detection in U.S. Senate Investments" [level=2] [ref=f4e93]
+          - paragraph [ref=f4e94]: Financial disclosure analysis
+          - list "Senate investments project technologies" [ref=f4e95]:
+            - listitem [ref=f4e96]: Python
+            - listitem [ref=f4e97]: Anomaly detection
+            - listitem [ref=f4e98]: Hierarchical clustering
+            - listitem [ref=f4e99]: LSTM autoencoders
+            - listitem [ref=f4e100]: Feature engineering
+            - listitem [ref=f4e101]: Financial data
+        - paragraph [ref=f4e102]: An unsupervised machine learning pipeline that highlights unusual patterns in publicly disclosed U.S. Senate transactions.
+        - generic [ref=f4e103]:
+          - link "View project" [ref=f4e104] [cursor=pointer]:
+            - /url: projects/senate-investments.html
+          - link "GitHub" [ref=f4e105] [cursor=pointer]:
+            - /url: https://github.com/tiffchu/Anomaly_Detection_US_Senate
+          - link "Notebook" [ref=f4e106] [cursor=pointer]:
+            - /url: https://github.com/tiffchu/Anomaly_Detection_US_Senate/blob/main/sprint4/capstone-sprint4-Main.ipynb
+          - link "Website" [ref=f4e107] [cursor=pointer]:
+            - /url: https://sites.google.com/view/tiff-anomaly-detection/home
+  - contentinfo [ref=f4e108]: © 2025 With love, Tiffany :D

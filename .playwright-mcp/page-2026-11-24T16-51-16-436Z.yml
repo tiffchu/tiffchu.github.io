@@ -1,0 +1,47 @@
+- generic [ref=f3e1]:
+  - button "Toggle dark mode" [active] [ref=f3e2] [cursor=pointer]: ☾
+  - navigation "Site navigation":
+    - button "Previous navigation item" [ref=f3e3] [cursor=pointer]
+    - listbox "Pages":
+      - option "Home" [selected] [ref=f3e6] [cursor=pointer]
+      - option "Projects" [ref=f3e7] [cursor=pointer]
+      - option "Hobbies" [ref=f3e8] [cursor=pointer]
+      - option "CV" [ref=f3e9] [cursor=pointer]
+      - option "Game" [ref=f3e10] [cursor=pointer]
+    - button "Next navigation item" [ref=f3e11] [cursor=pointer]
+  - main [ref=f3e14]:
+    - generic [ref=f3e16]:
+      - paragraph [ref=f3e17]: Hi there, I'm
+      - heading "Tiffany Chu" [level=1] [ref=f3e46]
+      - paragraph [ref=f3e20]: Welcome to my website!
+      - paragraph [ref=f3e21]: I'm a master's student at UBC and also work as a research analyst. My interests are in natural language processing and game theory. This site showcases my projects, background, and the interests that shape how I think and build. Additonally, I have an undergrad degree in cognitive systems and commerce (minor), with experience building NLP machine learning models in research settings. More importantly, I am looking for a new car, please email me with any leads.
+      - generic "Social and contact links" [ref=f3e22]:
+        - link "Email" [ref=f3e23] [cursor=pointer]:
+          - /url: mailto:tiffanymchu@gmail.com
+        - link "GitHub" [ref=f3e24] [cursor=pointer]:
+          - /url: https://github.com/tiffchu
+        - link "CV" [ref=f3e25] [cursor=pointer]:
+          - /url: assets/pdfs/CV.pdf
+  - contentinfo [ref=f3e26]:
+    - generic [ref=f3e27]:
+      - generic [ref=f3e28]:
+        - heading "Contact" [level=4] [ref=f3e29]
+        - paragraph [ref=f3e30]:
+          - text: "Email:"
+          - link "tiffanymchu@gmail.com" [ref=f3e31] [cursor=pointer]:
+            - /url: mailto:tiffanymchu@gmail.com
+        - paragraph [ref=f3e32]: "Location: Vancouver, Canada"
+      - generic [ref=f3e33]:
+        - heading "Important" [level=4] [ref=f3e34]
+        - list [ref=f3e35]:
+          - listitem [ref=f3e36]:
+            - link "Snake Game" [ref=f3e37] [cursor=pointer]:
+              - /url: game.html
+      - generic [ref=f3e38]:
+        - heading "Links" [level=4] [ref=f3e39]
+        - list [ref=f3e40]:
+          - listitem [ref=f3e41]:
+            - link "GitHub" [ref=f3e42] [cursor=pointer]:
+              - /url: https://github.com/tiffchu
+    - paragraph [ref=f3e44]:
+      - emphasis [ref=f3e45]: © 2025 Tiffany Chu · Built with ♥

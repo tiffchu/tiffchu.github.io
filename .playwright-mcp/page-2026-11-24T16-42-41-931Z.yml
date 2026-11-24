@@ -1,0 +1,108 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - navigation [ref=f2e3]:
+      - link "Tiffany Chu home" [ref=f2e4] [cursor=pointer]:
+        - /url: index.html
+        - text: /
+        - generic [ref=f2e5]: Tiffany Chu
+      - list [ref=f2e6]:
+        - listitem [ref=f2e7]:
+          - link "Home" [ref=f2e8] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=f2e9]:
+          - link "Projects" [ref=f2e10] [cursor=pointer]:
+            - /url: projects.html
+        - listitem [ref=f2e11]:
+          - link "Hobbies" [ref=f2e12] [cursor=pointer]:
+            - /url: hobbies.html
+        - listitem [ref=f2e13]:
+          - link "CV" [ref=f2e14] [cursor=pointer]:
+            - /url: cv.html
+        - listitem [ref=f2e15]:
+          - link "Game" [ref=f2e16] [cursor=pointer]:
+            - /url: game.html
+      - button "Toggle dark mode" [ref=f2e18] [cursor=pointer]: ☀
+  - main [ref=f2e19]:
+    - region "Hobbies" [ref=f2e20]:
+      - paragraph [ref=f2e21]: Lifemaxxing
+      - heading "Hobbies" [level=1] [ref=f2e22]
+      - paragraph [ref=f2e23]: Things I do when I'm not staring at a screen
+      - paragraph [ref=f2e24]: Click or tap a photo or video to view it in full.
+    - region "Gardening" [ref=f2e25]:
+      - generic [ref=f2e26]:
+        - 'link "Enlarge photo: dahlia" [ref=f2e27]':
+          - /url: https://tiffchu.github.io/assets/images/dahlia.jpg
+          - img "dahlia" [ref=f2e28]
+        - 'link "Enlarge photo: freesia" [ref=f2e29]':
+          - /url: https://tiffchu.github.io/assets/images/freesia.jpg
+          - img "freesia" [ref=f2e30]
+        - 'link "Enlarge photo: blueberries" [ref=f2e31]':
+          - /url: https://tiffchu.github.io/assets/images/blueberry.jpg
+          - img "blueberries" [ref=f2e32]
+      - generic [ref=f2e33]:
+        - paragraph [ref=f2e34]: I love old lady activities
+        - heading "Gardening" [level=2] [ref=f2e35]
+        - paragraph [ref=f2e36]: This year's plant obsession are dahlias and peony poppies. In addition to flowers, I grow chayote, corn, strawberries, blueberries, and other vegetables. I wouldn't recommend growing corn.
+        - list "Gardening icons" [ref=f2e37]:
+          - listitem "Flowers" [ref=f2e38]: 🌸
+          - listitem "Blueberries" [ref=f2e39]: 🫐
+          - listitem "Corn" [ref=f2e40]: 🌽
+    - region "Water sports" [ref=f2e41]:
+      - generic [ref=f2e42]:
+        - 'link "Enlarge photo: Nationals in Welland, Ontario. 2023" [ref=f2e43]':
+          - /url: https://tiffchu.github.io/assets/images/dragonboat.jpg
+          - img "Nationals in Welland, Ontario. 2023" [ref=f2e44]
+        - 'link "Enlarge photo: OC at Dragonzone, False Creek" [ref=f2e45]':
+          - /url: https://tiffchu.github.io/assets/images/oc.jpg
+          - img "OC at Dragonzone, False Creek" [ref=f2e46]
+        - 'link "Enlarge photo: idk" [ref=f2e47]':
+          - /url: https://tiffchu.github.io/assets/images/star.jpg
+          - img "idk" [ref=f2e48]
+      - generic [ref=f2e49]:
+        - paragraph [ref=f2e50]: Actual
+        - heading "Water sports" [level=2] [ref=f2e51]
+        - paragraph [ref=f2e52]:
+          - emphasis [ref=f2e53]: fig. 1 - Nationals in Welland, Ontario, 2023, silver. Team UBC Current Blue fig. 2 - Outrigger canoeing at Dragonzone, False Creek
+        - list "Water sports icons" [ref=f2e54]:
+          - listitem "Paddling" [ref=f2e55]: 🚣
+          - listitem "Canoeing" [ref=f2e56]: 🛶
+          - listitem "Sea star" [ref=f2e57]: ⭐
+    - region "(Any) Physical activity" [ref=f2e58]:
+      - generic [ref=f2e59]:
+        - 'link "Enlarge photo: pretending to climb idk why" [ref=f2e60]':
+          - /url: https://tiffchu.github.io/assets/images/climb.jpg
+          - img "pretending to climb idk why" [ref=f2e61]
+        - 'link "Enlarge video: ok I pullup" [ref=f2e62]':
+          - /url: https://tiffchu.github.io/assets/images/pullup.mp4
+          - generic "ok I pullup"
+        - 'link "Enlarge photo: backpacking" [ref=f2e63]':
+          - /url: https://tiffchu.github.io/assets/images/hike.jpg
+          - img "backpacking" [ref=f2e64]
+      - generic [ref=f2e65]:
+        - paragraph [ref=f2e66]: Why I need a 4x4
+        - heading "(Any) Physical activity" [level=2] [ref=f2e67]
+        - paragraph [ref=f2e68]: Sometimes I run, other times I lift things and put them down again. Anything for the endorphins and to not go insane.
+        - list "Physical activity icons" [ref=f2e69]:
+          - listitem "Running" [ref=f2e70]: 🏃
+          - listitem "Lifting" [ref=f2e71]: 🏋️
+          - listitem "Hiking" [ref=f2e72]: 🥾
+    - region "Other hobbies" [ref=f2e73]:
+      - generic [ref=f2e74]:
+        - paragraph [ref=f2e75]: I dont have pics for these
+        - heading "Other hobbies" [level=2] [ref=f2e76]
+      - list [ref=f2e77]:
+        - listitem [ref=f2e78]:
+          - generic [ref=f2e79]: Collecting rocks
+          - generic [ref=f2e80]: I like rocks.
+        - listitem [ref=f2e81]:
+          - generic [ref=f2e82]: Tetris
+          - generic [ref=f2e83]: Accepting tetr.io duel challenges.
+        - listitem [ref=f2e84]:
+          - generic [ref=f2e85]: Calligraphy
+          - generic [ref=f2e86]: Oblique dip pens, nibs, brush pens, the full spiral.
+        - listitem [ref=f2e87]:
+          - generic [ref=f2e88]: Sewing and alterations
+          - generic [ref=f2e89]: Started with a grad dress that didn't fit.
+  - contentinfo [ref=f2e90]:
+    - paragraph [ref=f2e92]:
+      - emphasis [ref=f2e93]: © 2025 Tiffany Chu · Built with ♥
